@@ -10,7 +10,10 @@ app = Flask(__name__)
 
 print sys.argv
 MODEL = "randomForest"
-model = engine.Model()
+if sys.argv[1] == "spam":
+	model = engine.spam_Model()
+else:
+	model = engine.Model()
 
 
 @app.route('/{}'.format(MODEL), methods=['GET', 'POST'])
